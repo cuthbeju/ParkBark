@@ -1,0 +1,81 @@
+<h1>
+            Welcome to the Dogs Administration Page!
+        </h1>
+        <table>
+            <tr>
+                <th>Dog ID</th>
+                <th>Dog Name</th>
+                <th>Birthday</th>
+                <th>Breed</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.dogID}}</td>
+                <td>{{this.dog_name}}</td>
+                <td>{{this.birthday}}</td>
+                <td>{{this.breed}}</td>
+            </tr>
+            {{/each}}
+            {{#each null_table_info}}
+            <tr>
+                <td>{{this.dogID}}</td>
+                <td>{{this.dog_name}}</td>
+                <td>{{this.birthday}}</td>
+                <td>{{this.breedID}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Dogs</h3>
+        <form action="/dogs" method="POST">
+            <label for="dog_name">Dog name:</label><br>
+            <input type="text" name="dog_name" required>
+            <br />
+            <label for="birthday">Birthday:</label><br>
+            <input type="date" name="birthday" required>
+            <br />
+            <label for="breedID">Breed:</label><br>
+            <select name="breedID">
+                <option value="">None</option>
+                {{#each breeds}}
+                <option value="{{this.breedID}}">{{this.breed_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+         <h3>Update Dogs</h3>
+        <form action="/dogs_update" method="POST">
+            <label for="dogID">Dog ID:</label><br>
+            <select name="dogID" required>
+                {{#each dogIDs}}
+                <option value="{{this.dogID}}">{{this.dogID}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="dog_name">Dog name:</label><br>
+            <input type="text" name="dog_name" required>
+            <br />
+            <label for="birthday">Birthday:</label><br>
+            <input type="date" name="birthday" required>
+            <br />
+            <label for="breedID">Breed:</label><br>
+            <select name="breedID">
+                <option value="">None</option>
+                {{#each breeds}}
+                <option value="{{this.breedID}}">{{this.breed_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Dogs</h3>
+        <form action="/dogs_delete" method="POST">
+            <label for="">Dog ID:</label><br>
+            <select name="dogID">
+                {{#each dogIDs}}
+                <option value="{{this.dogID}}">{{this.dogID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>

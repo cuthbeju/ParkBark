@@ -1,0 +1,48 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    text-align: left;
+    background-color: #0c8f9b;
+    color: white;
+}
+
+body {
+    width: 800px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    
+}
+
+ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+a {
+   text-decoration: none; 
+   font-weight: bold;
+   color: #046068;
+}
+
+input {
+    margin: 5px 0 5px 0;
+}
+
+select {
+    margin: 5px 0 5px 0;
+}

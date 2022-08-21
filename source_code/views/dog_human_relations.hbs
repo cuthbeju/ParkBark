@@ -1,0 +1,87 @@
+     <h1>
+            Welcome to the Dog-Human Relations Administration Page!
+        </h1>
+        <table>
+            <tr>
+                <th>Relation ID</th>
+                <th>Relation Type</th>
+                <th>Dog Name</th>
+                <th>Human Name</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.relationID}}</td>
+                <td>{{this.relation_type}}</td>
+                <td>{{this.dog}}</td>
+                <td>{{this.human}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Dog-Human Relations</h3>
+        <form action="/dog_human_relations" method="POST">
+            <label for="relation_typeID">Relation type:</label><br>
+            <select name="relation_typeID">
+                {{#each relation_types}}
+                <option value="{{this.relation_typeID}}">{{this.relationship}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="dogID">Dog Name:</label><br>
+            <select name="dogID">
+                {{#each dog_names}}
+                <option value="{{this.dogID}}">{{this.dog_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="humanID">Human Name:</label><br>
+            <select name="humanID">
+                {{#each human_names}}
+                <option value="{{this.humanID}}">{{this.human_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+         <h3>Update Dog-Human Relations</h3>
+        <form action="/dog_human_relations_update" method="POST">
+            <label for="relationID">Relation ID:</label><br>
+            <select name="relationID">
+                {{#each relationIDs}}
+                <option value="{{this.relationID}}">{{this.relationID}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="relation_typeID">Relation type:</label><br>
+            <select name="relation_typeID">
+                {{#each relation_types}}
+                <option value="{{this.relation_typeID}}">{{this.relationship}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="dogID">Dog Name:</label><br>
+            <select name="dogID">
+                {{#each dog_names}}
+                <option value="{{this.dogID}}">{{this.dog_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="humanID">Human Name:</label><br>
+            <select name="humanID">
+                {{#each human_names}}
+                <option value="{{this.humanID}}">{{this.human_name}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Dog-Human Relation</h3>
+        <form action="/dog_human_relations_delete" method="POST">
+            <label for="">Relation Type ID:</label><br>
+            <select name="relationID">
+                {{#each relationIDs}}
+                <option value="{{this.relationID}}">{{this.relationID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>

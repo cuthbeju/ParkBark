@@ -1,0 +1,65 @@
+<h1>
+            Welcome to the Visits Page!
+        </h1>
+        <h3>Reference Table: Dog-Human Relationships</h3>
+        <table>
+            <tr>
+                <th>Relation ID</th>
+                <th>Relation Type</th>
+                <th>Dog Name</th>
+                <th>Human Name</th>
+            </tr>
+            {{#each ref_table_info}}
+            <tr>
+                <td>{{this.relationID}}</td>
+                <td>{{this.relation_type}}</td>
+                <td>{{this.dog}}</td>
+                <td>{{this.human}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Visits</h3>
+        <table>
+            <tr>
+                <th>Visit ID</th>
+                <th>Entry Time</th>
+                <th>Exit Time</th>
+                <th>Relation ID</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.visitID}}</td>
+                <td>{{this.entry_time}}</td>
+                <td>{{this.exit_time}}</td>
+                <td>{{this.relationID}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Visit</h3>
+        <form action="/visits" method="POST">
+            <label for="entry_time">Entry Time:</label><br>
+            <input type="datetime-local" name="entry_time" required>
+            <br />
+            <label for="exit_time">Exit Time:</label><br>
+            <input type="datetime-local" name="exit_time">
+            <br />
+            <label for="relationID">Relation ID:</label><br>
+            <select name="relationID">
+                {{#each relationIDs}}
+                <option value="{{this.relationID}}">{{this.relationID}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Visit</h3>
+        <form action="/visits_delete" method="POST">
+            <label for="">Visit ID:</label><br>
+            <select name="visitID">
+                {{#each visitIDs}}
+                <option value="{{this.visitID}}">{{this.visitID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>

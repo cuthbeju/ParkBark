@@ -1,0 +1,33 @@
+<h1>
+            Welcome to the Relation Types Administration Page!
+        </h1>
+        <table>
+            <tr>
+                <th>Relation Type ID</th>
+                <th>Relationship</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.relation_typeID}}</td>
+                <td>{{this.relationship}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Relationship</h3>
+        <form action="/relation_types" method="POST">
+            <label for="relationship">Relationship:</label><br>
+            <input type="text" name="relationship" required>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Relationship</h3>
+        <form action="/relation_types_delete" method="POST">
+            <label for="">Relation Type ID:</label><br>
+            <select name="relation_typeID">
+                {{#each relation_typeIDs}}
+                <option value="{{this.relation_typeID}}">{{this.relation_typeID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>

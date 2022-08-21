@@ -1,0 +1,33 @@
+<h1>
+            Welcome to the Breeds Administration Page!
+        </h1>
+        <table>
+            <tr>
+                <th>Breed ID</th>
+                <th>Breed Name</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.breedID}}</td>
+                <td>{{this.breed_name}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Breed</h3>
+        <form action="/breeds" method="POST">
+            <label for="breed_name">Breed name:</label><br>
+            <input type="text" name="breed_name" required>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Breed</h3>
+        <form action="/breeds_delete" method="POST">
+            <label for="">Breed ID:</label><br>
+            <select name="breedID">
+                {{#each breedIDs}}
+                <option value="{{this.breedID}}">{{this.breedID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>

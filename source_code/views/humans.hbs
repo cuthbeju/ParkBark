@@ -1,0 +1,63 @@
+<h1>
+            Welcome to the Humans Administration Page!
+        </h1>
+        <table>
+            <tr>
+                <th>Human ID</th>
+                <th>Human Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+            {{#each table_info}}
+            <tr>
+                <td>{{this.humanID}}</td>
+                <td>{{this.human_name}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.email}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <h3>Add Humans</h3>
+        <form action="/humans" method="POST">
+            <label for="human_name">Human name:</label><br>
+            <input type="text" name="human_name" required>
+            <br />
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" name="phone" placeholder="555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <br />
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" required>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+         <h3>Update Humans</h3>
+        <form action="/humans_update" method="POST">
+            <label for="humanID">Human ID:</label><br>
+            <select name="humanID" required>
+                {{#each human_names}}
+                <option value="{{this.humanID}}">{{this.humanID}}</option>
+                {{/each}}
+            </select>
+            <br />
+            <label for="human_name">Human name:</label><br>
+            <input type="text" name="human_name" required>
+            <br />
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" name="phone" placeholder="555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <br />
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" required>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <h3>Delete Humans</h3>
+        <form action="/humans_delete" method="POST">
+            <label for="">Human ID:</label><br>
+            <select name="humanID">
+                {{#each humanIDs}}
+                <option value="{{this.humanID}}">{{this.humanID}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>
